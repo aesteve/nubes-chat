@@ -1,0 +1,8 @@
+{
+	"src-package": "com.github.aesteve.nubes.examples.chat",
+	"mongo": {
+			"host": "localhost",
+			"port": 27017,
+			"db_name": "nubes-chat"
+	}
+}

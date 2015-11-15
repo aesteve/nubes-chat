@@ -1,0 +1,177 @@
+body {
+	font-family:'Lato', sans-serif;
+	background-color:rgb(247, 247, 247);
+	width:100%;
+}
+
+.row {
+	max-width:100%;
+}
+
+.row .row {
+	margin:0;
+}
+
+.column {
+	padding:0;
+}
+
+.row .columns, .row .column {
+	padding-right: 10px;
+}
+
+.row .columns:last-child, .row .column:last-child {
+	padding-right:0!important;
+}
+
+.btn.small {
+	padding:0.7rem;
+}
+
+.mega-octicon {
+	font-size:25px;
+}
+
+
+.closed.octicon, .closed.mega-octicon {
+	color:#bd2c00;
+}
+
+.opened.octicon, .opened.mega-octicon {
+	color:#6cc644;
+}
+
+input[type=checkbox], input[type=radio] {
+	-webkit-appearance:none;
+	background-color: white;
+	border: 1px solid #d4d4d4;
+	width:15px;
+	height:15px;
+	margin: -3px 0.5em;
+	padding: 0;
+}
+
+input[type=checkbox]:checked {
+	background:url(/assets/images/icons/tick_blue.png) no-repeat;
+	background-position:-1px -1px;
+	background-size:15px 15px;
+}
+
+input[type=checkbox]:focus {
+	outline:1px solid #CCC;
+}
+
+
+
+
+
+
+
+
+progress {
+  width: 100%;
+  height: 20px;
+  margin: 0;
+  background-color: #eee;
+  border:1px solid #d4d4d4;
+}
+
+
+progress::-webkit-progress-bar {
+  border-radius: 3px;
+  background-color: #eee;
+}
+progress::-webkit-progress-value {
+  background-color: #43ac6a;
+  -webkit-animation: progress 8s linear infinite;
+}
+progress::-moz-progress-bar {
+  background-color: #43ac6a;
+}
+
+
+
+
+
+
+
+
+
+
+
+.spacer-bottom {
+	margin-bottom:1rem;
+}
+
+.spacer-top {
+	margin-top:1rem;
+}
+
+.empty-row {
+	font-style:italic;
+	text-align:center;
+}
+
+#main-menu {
+	border-bottom:3px solid #008cba;
+	box-shadow:rgba(0, 0, 0, 0.239216) 0px 3px 4px;
+}
+
+.page-content {
+	padding:20px 20px 50px 20px;
+	width:100%;
+}
+
+footer {
+	background-color:#222;
+	color:white;
+	padding:0.5em;
+	box-shadow:rgb(204, 204, 204) 0px 0px 3px 2px;
+	border-top:1px solid #008cba;
+	box-sizing:border-box;
+	height:35px;
+	/*line-height:35px;*/
+	position:fixed;
+	bottom:0;
+	width:100%;
+}
+
+.cb-cell {
+	text-align:right;
+}
+
+
+.tag {
+	padding:2px;
+	text-align:center;
+	border:1px solid white;
+	min-width:30px;
+}
+
+.box {
+	padding:20px 10px 10px 10px;
+	width:100%;
+	border:1px solid #dcdcdc;
+	border-radius:3px 3px 0 0;
+	background-color:#f4f4f4;
+	box-sizing:border-box;
+}
+
+h1 {
+    font-size:1.2em;
+		text-align: center;
+}
+
+h2 {
+    font-size:1.1em;
+}
+
+#login-form {
+	padding-top: 50px;
+	width: 700px;
+	margin: 0 auto;
+}
+
+#login-form table {
+	width: 100%;
+}
