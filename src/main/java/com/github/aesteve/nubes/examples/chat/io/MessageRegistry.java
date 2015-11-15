@@ -1,6 +1,9 @@
 package com.github.aesteve.nubes.examples.chat.io;
 
+import java.util.List;
+
 import io.vertx.core.buffer.Buffer;
+import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 
 public class MessageRegistry {
@@ -22,5 +25,11 @@ public class MessageRegistry {
 		error.put("message", err);
 		json.put("error", error);
 		return json.toString();
+	}
+	
+	public static JsonObject users(List<String> users) {
+		JsonObject json = new JsonObject();
+		json.put("users", new JsonArray(users));
+		return json;
 	}
 }
