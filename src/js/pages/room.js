@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { open as openSocket } from '../actions/socket';
 
 const mapStateToProps = (state, props) => {
-	const { room } = props.params;
+	const { name } = props.params;
 	return {
-		messages: state.messages[room.name]
+		messages: state.messages[name]
 	};
 }
 
 class Room extends Component {
 
 	componentDidMount() {
-		// TODO : create socket and connect to room
+		const { name } = this.props.params;
+		this.props.dispatch(openSocket('/socket/rooms/'));
 	}
 
 	render() {
-		const { room } = props.params;
+		const { name } = this.props.params;
 		return (
 			<div className="page">
-				Room : {room.name}
+				Room : {name}
 			</div>
 		);
 	}
