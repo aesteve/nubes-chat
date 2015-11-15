@@ -14,6 +14,7 @@ import com.github.aesteve.vertx.nubes.annotations.params.RequestBody;
 import com.github.aesteve.vertx.nubes.annotations.routing.http.GET;
 import com.github.aesteve.vertx.nubes.annotations.routing.http.POST;
 import com.github.aesteve.vertx.nubes.annotations.services.Service;
+import com.github.aesteve.vertx.nubes.context.PaginationContext;
 
 @Controller("/api/rooms/")
 @ContentType("application/json")
@@ -24,7 +25,7 @@ public class ChatRooms {
 	
 	@GET
 	@RetrieveByQuery
-	public FindBy<ChatRoom> list() {
+	public FindBy<ChatRoom> list(PaginationContext context) {
 		return new FindBy<>(ChatRoom.class);
 	}
 	
