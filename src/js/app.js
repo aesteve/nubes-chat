@@ -3,18 +3,27 @@ import { PropTypes } from 'react-router';
 import { connect } from 'react-redux';
 import Menu from './components/menu';
 
+const mapStateToProps = state => {
+	return {
+		username: state.userInfos
+	};
+};
+
 class App extends Component {
 
 	render() {
-		const { user, children } = this.props;
+		const { username, children } = this.props;
 		return (
 			<div>
 				<Menu />
-				{children}
+				{username && children}
+				{!username &&
+					<div>Please choose an username</div>
+				}
 			</div>
 		);
 	}
 
 }
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);

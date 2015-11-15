@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { open as openSocket } from '../actions/socket';
+import { enter } from '../actions/socket';
+import RoomMessages from '../components/room-messages';
+import RoomUsers from '../components/room-users';
 
 const mapStateToProps = (state, props) => {
 	const { name } = props.params;
 	return {
-		messages: state.messages[name]
+		username: state.userInfos
 	};
 }
 
@@ -13,7 +15,7 @@ class Room extends Component {
 
 	componentDidMount() {
 		const { name } = this.props.params;
-		this.props.dispatch(openSocket('/socket/rooms/'));
+		this.props.dispatch(enter(name, this.props.username));
 	}
 
 	render() {
@@ -21,6 +23,10 @@ class Room extends Component {
 		return (
 			<div className="page">
 				Room : {name}
+				<div className="row box">
+					<RoomMessages room={name} />
+					<RoomUsers room={name} />
+				</div>
 			</div>
 		);
 	}

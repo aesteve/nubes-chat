@@ -1,39 +1,49 @@
-import SockJS from 'sockjs-client';
+import VertxBus from 'vertx3-eventbus-client';
 import {
-	SOCKET_OPENED,
-	SOCKET_CLOSED,
-	SOCKET_ERROR,
-	SOCKET_DATA
+	ROOM_USERS,
+	ROOM_MESSAGE
 } from './action-types';
 
-let socket;
-
-export function open(path) {
-
+let pending = [];
+let eb = new VertxBus('/socket/rooms');
+eb.onopen = () => {
+	refreshPending();
+};
+export function enter(room, username) {
+	const address = 'rooms.' + room;
 	return (dispatch, getState) => {
-		socket = new SockJS(path);
-		socket.onopen = event => {
-			dispatch({
-				type: SOCKET_OPENED
+		pending.push(() => {
+			console.log('registerhandler: ' + username);
+			eb.registerHandler(address, {username: username}, (error, message) => {
+				const { body } = message;
+				if (body.users) {
+					dispatch({
+						type: ROOM_USERS,
+						room: room,
+						users: body.users
+					});
+				} else if (body.message && body.author) {
+					dispatch({
+						type: ROOM_MESSAGE,
+						room: room,
+						message: body
+					});
+				}
 			});
-		};
-		socket.onclose = event => {
-			dispatch({
-				type: SOCKET_CLOSED
-			});
-		};
-		socket.onerror = event => {
-			dispatch({
-				type: SOCKET_ERROR,
-				error: event
-			});
-		};
-		socket.onmessage = data => {
-			dispatch({
-				type: SOCKET_DATA,
-				data: data.data
-			});
-		}
+		});
+		refreshPending();
 	};
+}
 
+function refreshPending() {
+	let newPending = [];
+	pending.forEach(handler => {
+		try {
+			handler();
+		} catch (all) {
+			console.error(all);
+			newPending.push(handler);
+		}
+	});
+	pending = newPending;
 }
