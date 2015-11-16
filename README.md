@@ -3,7 +3,7 @@ Example of a chat application built with Nubes framework
 
 # Technology stack
 
-## Server-side
+## Server-side (Java 8)
 
 * Nubes: a web framework built on top of vertx-web
 * MongoDB
