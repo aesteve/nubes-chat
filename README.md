@@ -5,11 +5,11 @@ Example of a chat application built with Nubes framework
 
 ## Server-side (Java 8)
 
-* Nubes: a web framework built on top of vertx-web
+* [Nubes](http://github.com/aesteve/nubes): a web framework built on top of [vertx-web](https://github.com/vert-x3/vertx-web)
 * MongoDB
 
 ## Client-side (ES2015)
 
-* React
-* Redux
-* Vertx eventbus client
+* [React](https://facebook.github.io/react/)
+* [Redux](https://github.com/rackt/redux)
+* [Vertx eventbus client](https://www.npmjs.com/package/vertx3-eventbus-client)
