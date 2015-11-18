@@ -1,5 +1,8 @@
 package com.github.aesteve.nubes.examples.chat.fixtures;
 
+import io.vertx.core.Future;
+import io.vertx.core.Vertx;
+
 import com.github.aesteve.nubes.examples.chat.model.ChatRoom;
 import com.github.aesteve.nubes.orm.mongo.MongoNubes;
 import com.github.aesteve.nubes.orm.mongo.services.MongoService;
@@ -8,14 +11,11 @@ import com.github.aesteve.vertx.nubes.annotations.services.Service;
 import com.github.aesteve.vertx.nubes.fixtures.Fixture;
 import com.github.aesteve.vertx.nubes.utils.async.AsyncUtils;
 
-import io.vertx.core.Future;
-import io.vertx.core.Vertx;
-
 public class ChatRoomsFixture extends Fixture {
 
 	@Service(MongoNubes.MONGO_SERVICE_NAME)
 	MongoService mongo;
-	
+
 	@Override
 	public int executionOrder() {
 		return 0;

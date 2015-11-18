@@ -19,22 +19,22 @@ import com.github.aesteve.vertx.nubes.context.PaginationContext;
 @Controller("/api/rooms/")
 @ContentType("application/json")
 public class ChatRooms {
-	
+
 	@Service(MongoNubes.MONGO_SERVICE_NAME)
 	private MongoService mongo;
-	
+
 	@GET
 	@RetrieveByQuery
 	public FindBy<ChatRoom> list(PaginationContext context) {
 		return new FindBy<>(ChatRoom.class);
 	}
-	
+
 	@GET(":name")
 	@RetrieveById
 	public FindBy<ChatRoom> get(@Param String name) {
 		return new FindBy<>(ChatRoom.class, "name", name);
 	}
-	
+
 	@POST
 	@Create
 	public ChatRoom create(@RequestBody ChatRoom room) {

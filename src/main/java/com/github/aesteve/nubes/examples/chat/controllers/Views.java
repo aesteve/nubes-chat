@@ -6,9 +6,9 @@ import com.github.aesteve.vertx.nubes.annotations.routing.http.GET;
 
 @Controller("/")
 public class Views {
-	
+
 	@GET
 	@File("web/index.html")
 	public void index() {}
-	
+
 }
